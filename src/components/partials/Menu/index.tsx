@@ -7,13 +7,13 @@ export const Menu = () => {
 
     return (
         <C.MenuArea>
-            <Link to="/" className={pathLocation === '/' ? 'active' : ''}>
+            <Link to="/" className={pathLocation === '/' ? 'active' : ''} data-tip="Loja" data-for="tip-right">
                 <img src="/assets/store.png" alt="" />
             </Link>
-            <Link to="/orders" className={pathLocation === '/orders' ? 'active' : ''}>
+            <Link to="/orders" className={pathLocation === '/orders' ? 'active' : ''} data-tip="Pedidos" data-for="tip-right">
             <img src="/assets/order.png" alt="" />
             </Link>
-            <Link to="/profile" className={pathLocation === '/profile' ? 'active' : ''}>
+            <Link to="/profile" className={pathLocation === '/profile' ? 'active' : ''} data-tip="Meu Perfil" data-for="tip-right">
                 <img src="/assets/profile.png" alt="" />
             </Link>
         </C.MenuArea>
