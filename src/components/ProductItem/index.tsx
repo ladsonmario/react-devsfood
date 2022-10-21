@@ -3,11 +3,16 @@ import { ProductsType } from '../../types/types';
 
 type Props = {
     data: ProductsType;
+    onClick: () => void;
 }
 
-export const ProductItem = ({ data }: Props) => {    
+export const ProductItem = ({ data, onClick }: Props) => { 
+    const handleClick = () => {
+        onClick();
+    }
+
     return (
-        <C.Container>
+        <C.Container onClick={handleClick}>
             <img className="img--product" src={data.image} alt="" />
             <div className="info">
                 <div className="info--name">{data.name}</div>

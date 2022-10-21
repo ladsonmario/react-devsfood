@@ -28,8 +28,14 @@ export const HomeArea = styled.div`
         }
     }
 
-    .pagination {
+    .no--product {
         margin-top: 20px;
+        font-size: 20px;
+        color: #fff;
+    }
+
+    .pagination {
+        margin-top: 30px;
         display: flex;
         gap: 10px;
         flex-wrap: wrap;

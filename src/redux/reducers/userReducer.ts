@@ -1,11 +1,11 @@
-import { createSlice, Slice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-type InitialStateType = {
+type InitialUserStateType = {
     token: string;
     name: string;
 }
 
-const initialState: InitialStateType = {
+const initialState: InitialUserStateType = {
     token: '',
     name: ''
 }

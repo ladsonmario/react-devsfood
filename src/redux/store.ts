@@ -1,8 +1,10 @@
+import { combineReducers } from 'redux';
 import { configureStore, EnhancedStore } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 import { persistStore, persistReducer, WebStorage } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import userReducer from './reducers/userReducer';
+import cartReducer from './reducers/cartReducer';
 import { Persistor } from 'redux-persist/lib/types';
 
 
@@ -15,10 +17,15 @@ type PersistConfigType = {
 const persistConfig: PersistConfigType = {
     key: 'root',
     storage,
-    whitelist: ['user']
+    whitelist: ['user', 'cart']
 }
 
-const persistedReducer = persistReducer(persistConfig, userReducer);
+const rootReducer = combineReducers({
+    user: userReducer,
+    cart: cartReducer
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store: EnhancedStore = configureStore({
     reducer: persistedReducer,    
