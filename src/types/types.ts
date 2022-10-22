@@ -11,5 +11,5 @@ export type ProductsType = {
     image: string;
     price: number;
     ingredients: string;
-    points: number;
+    qt?: number;
 }

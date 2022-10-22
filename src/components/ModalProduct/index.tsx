@@ -2,6 +2,7 @@ import { Dispatch, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import * as C from './styles';
 import { ProductsType } from '../../types/types';
+import { setAddProduct } from '../../redux/reducers/cartReducer';
 
 type Props = {
     data: ProductsType;
@@ -32,10 +33,7 @@ export const ModalProduct = ({ data, setStatus }: Props) => {
     }
 
     const handleAddToCart = () => {
-        // juntar as informações
-        // mandar para reducer
-        // fechar o modal
-
+        dispatch( setAddProduct({ data, qt }) ); 
         setStatus(false);
     }
 
