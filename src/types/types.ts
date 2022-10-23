@@ -13,3 +13,9 @@ export type ProductsType = {
     ingredients: string;
     qt?: number;
 }
+
+export type AddressType = {
+    workAndHouse: string; 
+    streetAndNumber: string; 
+    cityStateZipcode: string;
+}

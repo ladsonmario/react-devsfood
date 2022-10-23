@@ -1,16 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ProductsType } from '../../types/types';
+import { ProductsType, AddressType } from '../../types/types';
 
 type InitialCartStateType = {
     products: ProductsType[];
-    address: string[];
+    address: AddressType;
     discount: number;
     delivery: number;
 }
 
 const initialState: InitialCartStateType = {
     products: [],
-    address: [],
+    address: {} as AddressType,
     discount: 0,
     delivery: 0    
 }
@@ -38,34 +38,38 @@ const slice = createSlice({
 
             return {...state, products};
         },
-        setMinusQtProduct: (state, action) => {
-            const id: number = action.payload;
+        setQtProduct: (state, action) => {             
+            const index: number = state.products.findIndex(item => item.id === action.payload.id);
+            let qt: number = state.products[index].qt as number;
 
-            const index: number = state.products.findIndex(item => item.id === id);
-            let qt = state.products[index].qt as number - 1;
-            
-            if(qt === 0) {
-                let newArrayProducts = state.products.filter(item => item.id !== id);  
-                return { ...state, products: newArrayProducts};
+            switch(action.payload.typeQt) {
+                case '-':
+                    if((qt - 1) <= 0) {
+                        let newArrayProducts = state.products.filter(item => item.id !== action.payload.id);  
+                        return { ...state, products: newArrayProducts};
+                    }
+        
+                    if(index !== -1 && qt >= 1) {                
+                        state.products[index].qt = qt - 1;
+                        return;
+                    }
+                break;
+                case '+': 
+                    if(index !== -1) {                
+                        state.products[index].qt = qt + 1;                
+                    }
+                break;
             }
-
-            if(index !== -1 && qt >= 1) {                
-                state.products[index].qt = qt;
-                return;
-            }            
         },
-        setPlusQtProduct: (state, action) => {
-            const id: number = action.payload;
-
-            const index: number = state.products.findIndex(item => item.id === id);
-            let qt = state.products[index].qt as number + 1;
-
-            if(index !== -1) {                
-                state.products[index].qt = qt;                
+        setAddress: (state, action) => {
+            state.address = {
+                cityStateZipcode: action.payload.cityStateZipcode,
+                streetAndNumber: action.payload.streetAndNumber,
+                workAndHouse: action.payload.workAndHouse
             }
         }
     }
 });
 
-export const { setAddProduct, setMinusQtProduct, setPlusQtProduct } = slice.actions;
+export const { setAddProduct, setQtProduct, setAddress } = slice.actions;
 export default slice.reducer;
