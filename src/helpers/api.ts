@@ -26,5 +26,21 @@ export const useAPI = {
 
         const json = await fetch(`${BASE}/products?${fields.join('&')}`);
         return json.json();
+    },
+    login: async (email: string, password: string) => {
+        const json = await fetch(`${BASE}/login`, {
+            method: 'POST',
+            headers: { 'Content-Type' : 'application/json' },
+            body: JSON.stringify({email, password})
+        });
+        return json.json();
+    },
+    register: async (name: string, email: string, password: string) => {
+        const json = await fetch(`${BASE}/user`, {
+            method: 'POST',
+            headers: { 'Content-Type' : 'application/json' },
+            body: JSON.stringify({name, email, password})
+        });
+        return json.json();
     }
 };

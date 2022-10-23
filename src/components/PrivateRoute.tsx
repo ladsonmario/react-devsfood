@@ -5,7 +5,7 @@ type Props = {
     children: JSX.Element;
 }
 export const PrivateRoute = ({ children }: Props) => {
-    const token = useAppSelector(state => state.token);
+    const token = useAppSelector(state => state.user.token);
 
     return (!token || token === '') ? <Navigate to="/login" /> : children;
 }
