@@ -85,4 +85,8 @@ export const LoginArea = styled.div`
             }
         }        
     }
+
+    @media (max-width: 600px) {
+        
+    }
 `;

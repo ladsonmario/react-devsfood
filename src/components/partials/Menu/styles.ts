@@ -27,4 +27,18 @@ export const MenuArea = styled.div`
     .active {
         background-color: #0b4d0b;
     }
+
+    @media (max-width: 600px) {
+        width: 60px;
+
+        a {
+            width: 40px;
+            height: 40px;
+
+            img {
+                width: 24px;
+            }
+        }        
+    }
+
 `;

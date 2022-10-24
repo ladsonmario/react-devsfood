@@ -178,4 +178,8 @@ export const CartArea = styled.div<CartAreaType>`
             margin-left: 15px;
         }
     }
+
+    @media (max-width: 700px) {
+        right: 0;
+    }   
 `;

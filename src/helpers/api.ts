@@ -1,11 +1,5 @@
 const BASE: string = 'https://api.b7web.com.br/devsfood/api';
 
-type FieldsType = {
-    search: string;
-    page: number;
-    category: number;
-}
-
 export const useAPI = {
     getCategories: async () => {
         const json = await fetch(`${BASE}/categories`);

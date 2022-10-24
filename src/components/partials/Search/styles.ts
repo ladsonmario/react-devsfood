@@ -31,4 +31,12 @@ export const SearchArea = styled.div<SearchAreaType>`
         transition: all ease .3s; 
         font-size: 18px;      
     }
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+
+        input {
+            margin-top: 20px;
+        }
+    }
 `;

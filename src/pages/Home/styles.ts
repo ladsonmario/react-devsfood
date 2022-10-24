@@ -14,7 +14,8 @@ export const HomeArea = styled.div`
         .list {
             display: flex;
             gap: 15px;
-            margin-top: 10px;            
+            margin-top: 10px; 
+            flex-wrap: wrap;                       
         }
     }
 
@@ -54,6 +55,28 @@ export const HomeArea = styled.div`
 
         .active {
             background-color: #aaa;
+        }
+    }
+
+    @media (max-width: 1050px) {
+        .products {
+            .list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+
+    @media (max-width: 700px) {
+        .categories {
+            .list {
+                justify-content: center;
+            }
+        }
+
+        .products {
+            .list {
+                grid-template-columns: repeat(1, 1fr);
+            }
         }
     }
 `;

@@ -11,8 +11,6 @@ export const Cart = () => {
     const products: ProductsType[] = useAppSelector(state => state.cart.products);
     const address: AddressType = useAppSelector(state => state.cart.address);
 
-    console.log(address.cityStateZipcode);
-
     const [showBody, setShowBody] = useState<boolean>(false);
     const [modalStatus, setModalStatus] = useState<boolean>(false);
     const [workAndHouse, setWorkAndHouse] = useState<string>(address.workAndHouse);

@@ -39,4 +39,8 @@ export const Container = styled.div`
         height: 20px;
         width: auto;
     }
+
+    @media (max-width: 600px) {
+        padding: 10px;
+    }
 `;
